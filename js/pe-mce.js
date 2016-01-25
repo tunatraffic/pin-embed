@@ -4,14 +4,14 @@
 
 (function() {
     /* Register the buttons */
-    tinymce.create('tinymce.plugins.MyButtons', {
+    tinymce.create('tinymce.plugins.PeButtons', {
         init : function(ed, url) {
             /**
              * Inserts shortcode content
              */
-            ed.addButton( 'button_eek', {
+            ed.addButton( 'button_pin_embed', {
                 title : 'Insert shortcode',
-                image : '../wp-includes/images/smilies/icon_eek.gif',
+                image : '../wp-content/plugins/pin-embed/images/pin-embed-button.png',
                 onclick : function() {
                     ed.selection.setContent('[pin-embed url= size=small description=true]');
                 }
@@ -22,5 +22,5 @@
         },
     });
     /* Start the buttons */
-    tinymce.PluginManager.add( 'my_button_script', tinymce.plugins.MyButtons );
+    tinymce.PluginManager.add( 'pe_button_script', tinymce.plugins.PeButtons );
 })();

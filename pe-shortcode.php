@@ -7,7 +7,7 @@
  */
 
 
-// Only if this
+// Only if shortcode does not already exist
 if ( ! shortcode_exists( 'pin-embed' ) ) {
 
 
@@ -15,7 +15,7 @@ function pe_shortcode_atts( $atts ) {
     $atts = shortcode_atts(
         array(
             'url' => '',
-            'size' => '',
+            'size' => 'small',
             'description' => 'true',
         ), $atts, 'pin_embed' );
 
@@ -27,7 +27,7 @@ function pe_shortcode_atts( $atts ) {
 
 
     $html = '<a data-pin-do="embedPin" ';
-    if ($atts['size'] == '' || $atts['size'] == 'medium' || $atts['size'] == 'large') $html .= 'data-pin-width="' . $atts['size'] . '" ';
+    if ($atts['size'] == 'medium' || $atts['size'] == 'large') $html .= 'data-pin-width="' . $atts['size'] . '" ';
     if($atts['description'] == 'false') $html .= 'data-pin-terse="true" ';
     $html .= 'href="' . $atts['url'] . '"></a>';
 
