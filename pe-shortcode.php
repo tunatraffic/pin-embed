@@ -1,39 +1,41 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: emmaedgar
- * Date: 1/22/16
- * Time: 1:59 PM
- */
+
+function pe_shortcode_atts( $atts ) {
+    $atts = shortcode_atts(
+        array(
+            'url' => '',
+            'size' => 'small',
+            'description' => 'true',
+        ), $atts, 'pin-embed' );
 
 
-// Only if shortcode does not already exist
-if ( ! shortcode_exists( 'pin-embed' ) ) {
-
-
-    function pe_shortcode_atts( $atts ) {
-        $atts = shortcode_atts(
-            array(
-                'url' => '',
-                'size' => 'small',
-                'description' => 'true',
-            ), $atts, 'pin_embed' );
-
-
-        if( $atts['url'] == '' )
-            return;
-
-        wp_enqueue_script('pin-embed-js');
-
-
-        $html = '<a data-pin-do="embedPin" ';
-        if ($atts['size'] == 'medium' || $atts['size'] == 'large') $html .= 'data-pin-width="' . $atts['size'] . '" ';
-        if($atts['description'] == 'false') $html .= 'data-pin-terse="true" ';
-        $html .= 'href="' . $atts['url'] . '"></a>';
-
-        return $html;
+    if ( $atts['url'] == '' ) {
+        return;
     }
-    add_shortcode( 'pin-embed', 'pe_shortcode_atts' );
 
+    wp_enqueue_script( 'pin-embed-js' );
 
+    $html = '<a data-pin-do="embedPin" ';
+    
+    if ( $atts['size'] == 'medium' || $atts['size'] == 'large' ) {
+        $html .= 'data-pin-width="' . $atts['size'] . '" ';
+    } 
+    
+    if ( $atts['description'] == 'false' ) {
+        $html .= 'data-pin-terse="true" ';
+    }
+
+    $html .= 'href="' . $atts['url'] . '"></a>';
+
+    return $html;
 }
+
+/**
+ * Register shortcode only if it does not already exist
+ */
+function pe_register_pin_embed_shortcode() {
+    if ( ! shortcode_exists( 'pin-embed' ) ) {
+        add_shortcode( 'pin-embed', 'pe_shortcode_atts' );
+    }       
+}
+add_action( 'init', 'pe_register_pin_embed_shortcode' );
