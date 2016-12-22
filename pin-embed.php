@@ -1,18 +1,12 @@
 <?php
 
 /**
- * @link              http://tunatraffic.com
- * @since             1.0.0
- * @package           Pin_Embed
- *
- * @wordpress-plugin
  * Plugin Name:       Pin Embed
- * Plugin URI:        http://example.com/pin-embed-uri/
  * Description:       Embed pins on your site with a shortcode
  * Version:           1.0.0
  * Author:            Tuna Traffic
- * Author URI:        http://tunatraffic.com/
- * License:           GPL-2.0+
+ * Author URI:        https://tunatraffic.com/
+ * License:           GPL-2.0
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       pin-embed
  */
