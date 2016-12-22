@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       Pin Embed
  * Description:       Embed pins on your site with a shortcode
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Tuna Traffic
  * Author URI:        https://tunatraffic.com/
  * License:           GPL-2.0
