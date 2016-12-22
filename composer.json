@@ -1,0 +1,9 @@
+{
+    "name": "tunatraffic/pin-embed",
+    "description": "Embed pins on your site with a shortcode",
+    "type": "wordpress-plugin",
+    "require": {
+        "composer/installers": "^1.0"
+    },
+    "license": "GPL-2.0"
+}
